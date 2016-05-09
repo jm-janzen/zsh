@@ -1,0 +1,44 @@
+#!/bin/zsh
+
+# TODO check if screen session of <fruit> name already exists
+# before creating a same-named session.
+function scn() {
+
+    fruits=(
+        banana      mango       orange
+        peach       cherry      pineapple
+        watermelon  rasberry    strawberry
+        grape       grapefruit  pomegranate)
+
+    numFruits=${#fruits}
+
+    if (( $# > 0 )) {
+        screen $@
+    } else {
+        name=$fruits[$[RANDOM % numFruits + 1]]
+
+        screen -S "$name"
+    }
+}
+
+### convenience functions
+function dump() {
+    mv -i $1 $HOME/bups/$1
+}
+function dump-empty() {
+    mv $HOME/bups/* $HOME/.bups/
+}
+function dump-ls() {
+    ls -la $HOME/bups/
+}
+function notes() {
+    grep -r $HOME/notes/ --exclude-dir=".git" -e $1 | grep --color -C 10 $2
+}
+function calc() {
+    echo "$@" | bc
+}
+
+function grade() {
+    print "scale=2; $1 / $2 * 100" | bc
+}
+
