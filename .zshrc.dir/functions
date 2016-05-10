@@ -1,5 +1,24 @@
 #!/bin/zsh
 
+# reference to dir containing source files
+zshdir=${0:h}
+
+fpath+="`dirname $0`/completions"
+
+
+### shortcut functions to edit zsh configurations
+function zedit () {
+    file=$1
+    case "$file" in
+        aliases|functions|zshrc|completions)
+            vi ${zshdir}/${file}
+            ;;
+        *)
+            exit 0
+            ;;
+    esac
+}
+
 # TODO check if screen session of <fruit> name already exists
 # before creating a same-named session.
 function scn() {
