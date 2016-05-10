@@ -3,8 +3,8 @@
 # reference to dir containing source files
 zshdir=${0:h}
 
+# reference to dir containing completion function files
 fpath+="`dirname $0`/completions"
-
 
 ### shortcut functions to edit zsh configurations
 function zedit () {
