@@ -60,9 +60,10 @@ alias  gf='git log -p --follow --oneline --' #
 alias gfp='git log -p --follow --'  #
 function gg() { git grep "$*"; }  # simpler git-grep (concatenates params)
 
-alias  gp='git pull'              #
-alias gpr='git pull \
+alias gp='git pull \
     --recurse-submodules'         # update submodules
+alias "git clone"='git clone \
+    --resursive'                  # update submodule(s) when cloning
 alias gpu='git push'              #
 alias  ga='git add'               #
 alias  gc='git checkout'          # shortcuts
