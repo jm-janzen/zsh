@@ -42,6 +42,9 @@ alias  e='~/scripts/penv.sh'        # Usage: e
 alias gm='~/scripts/gd-sum.sh'      # Usage: gm
 alias al='~/scripts/aliases.sh'     # Usage: al
 
+alias crawl='~/scripts/crawl.sh'    # Usage: crawl [OPTIONS]... [FILE]
+alias zshdf='diff -r ~/.zshrc.dir ~/env/zsh/.zshrc.dir' # TEMP - recursive diff of active and vc zsh env files
+
 ### git aliases
 alias   g='git'                     #
 alias  st='git status -s -b'        #shortform git status + branch info
