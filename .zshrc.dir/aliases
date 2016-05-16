@@ -11,7 +11,7 @@ alias     t='\tree -Fn --dirsfirst trees/facer-dead -I node_modules'
 alias  scns='scn -ls'
 
 ### convenience (more specific)
-alias   mem='ps -ax -o %mem=--MEM--,user=---USER---,pid=---PID--,cmd | grep -v root | sort -Vr'
+alias   mem='ps ax -o %mem=--MEM--,user=---USER---,pid=---PID--,cmd | grep -v root | sort -Vr'
 
 ### convenience pipes (global)
 alias -g      G='| grep --color'
