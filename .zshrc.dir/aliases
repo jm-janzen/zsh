@@ -7,7 +7,7 @@ alias     l='\ls -p'
 alias    l.='\ls -halpd .*'
 alias     j='jobs -l'
 alias     h='history'
-alias     t='\tree -Fn --dirsfirst trees/facer-dead -I node_modules'
+alias     t='tree -C'
 alias  scns='scn -ls'
 
 ### convenience (more specific)
