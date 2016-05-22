@@ -51,7 +51,18 @@ function dump-ls() {
     ls -la $HOME/bups/
 }
 function notes() {
-    grep -r $HOME/notes/ --exclude-dir=".git" -e $1 | grep --color -C 10 $2
+    if [[ -z $1 ]]; then
+        echo 'Usage:\n\t notes [file] [pattern]'
+    elif [[ $1 =~ "-h" ]]; then
+        echo 'Usage:\n\t notes [file] [pattern]'
+    elif [[ $1 =~ "-l" ]] || [[ $1 =~ "--list" ]]; then
+        echo 'List of Help Files:\n------------------'
+        \ls ${HOME}/notes | awk -F '.' ' /.txt/ { print $1 } '
+    elif [[ -z $2 ]]; then
+        less ${HOME}/notes/${1}.txt
+    else
+        grep -rh $HOME/notes/ --exclude-dir=".git" -e $1 | grep --color -C 10 $2
+    fi
 }
 function calc() {
     echo "$@" | bc
