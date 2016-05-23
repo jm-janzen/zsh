@@ -64,6 +64,24 @@ function notes() {
         grep -rh $HOME/notes/ --exclude-dir=".git" -e $1 | grep --color -C 10 $2
     fi
 }
+
+#
+# A completely useless function, that just does what the name implies
+#
+function look-busy() {
+    for i in $(find . -name \*); do
+        \ls $i
+        for j in $i; do
+            if [[ -d $j ]]; then
+                \ls -a $j
+            else
+                od $j --width=40  -A x -t x1z -v | awk -F=' ' '{ print $0 }'
+                sleep $[RANDOM % 3]
+            fi
+        done
+    done
+}
+
 function calc() {
     echo "$@" | bc
 }
