@@ -9,6 +9,7 @@ alias     j='jobs -l'
 alias     h='history'
 alias     t='\tree -Fn --dirsfirst -I node_modules'
 alias  scns='scn -ls'
+alias zshrf="source ${HOME}/.zshrc"
 
 ### convenience (more specific)
 alias   mem='ps ax -o %mem=--MEM--,user=---USER---,pid=---PID--,cmd | grep -v root | sort -Vr'
