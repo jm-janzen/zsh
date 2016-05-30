@@ -4,6 +4,7 @@
 alias    ls='\ls -l -phF'
 alias    ll='\ls -halp -F'
 alias     l='\ls -p'
+alias    la='\ls -pa'
 alias    l.='\ls -halpd .*'
 alias     j='jobs -l'
 alias     h='history'
