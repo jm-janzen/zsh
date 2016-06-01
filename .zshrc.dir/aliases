@@ -8,6 +8,7 @@ alias    l.='\ls -halpd .*'
 alias     j='jobs -l'
 alias     h='history'
 alias     t='\tree -Fn --dirsfirst -I node_modules'
+alias    td='\tree -Fn --dirsfirst -I node_modules -d' # same, but dirs only
 alias  scns='scn -ls'
 alias zshrf="source ${HOME}/.zshrc"
 
