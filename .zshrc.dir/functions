@@ -24,9 +24,6 @@ function zedit () {
 function scn() {
 
     fruits=(
-        banana      mango       orange
-        peach       cherry      pineapple
-        watermelon  rasberry    strawberry
         grape       grapefruit  pomegranate)
 
     numFruits=${#fruits}
@@ -36,7 +33,25 @@ function scn() {
     } else {
         name=$fruits[$[RANDOM % numFruits + 1]]
 
-        screen -S "$name"
+        IFS=$'\n'
+        screens=($(screen -ls | sed -nr 's/.*\d*\.([a-z]+)\s+[\(].*/\1/p'))
+        num_screens=$#screens
+
+        i=0
+        # place loop in subshell, so exit only applies to it
+        ( for s in $screens; do
+            i++
+            echo "Testing if $name matches $s..."
+            if test "$name" != "$s" 
+            then
+                #screen -S "$name"
+                echo $name
+                exit
+            else
+                echo "I already put $name in your fruit salad; try again!"
+            fi
+        done )
+
     }
 }
 
