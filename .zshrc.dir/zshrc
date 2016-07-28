@@ -5,9 +5,6 @@ promptinit
 
 setopt histignorealldups sharehistory
 
-# predict command line as you type
-autoload -Uz predict-on && predict-on
-
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
 SAVEHIST=1000

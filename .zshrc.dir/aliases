@@ -73,7 +73,8 @@ alias  ga='git add'               #
 alias  gc='git checkout'          # shortcuts
 alias gcm='git commit'            #
 alias  gl='git log --name-status' # show file action summaries
-alias glp='git log -p'            #
+alias glp='git log \
+    --patch-with-stat'            # show sum insert/deletes
 alias  gb='git blame -c'          ### TODO add more parms for better readout
 alias gbr='git show-branch -r'    # show common commits between branches
 alias gcf='git commit -F- <<EOF'  # use heredocs for commit message
