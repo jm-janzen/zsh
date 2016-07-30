@@ -52,16 +52,20 @@ function dump-ls() {
 }
 function notes() {
     if [[ -z $1 ]]; then
-        echo 'Usage:\n\t notes [file] [pattern]'
+        echo 'Usage:\n\t notes [-e] [[file] [pattern]]'
     elif [[ $1 =~ "-h" ]]; then
-        echo 'Usage:\n\t notes [file] [pattern]'
+        echo 'Usage:\n\t notes [-e] [[file] [pattern]]'
     elif [[ $1 =~ "-l" ]] || [[ $1 =~ "--list" ]]; then
         echo 'List of Help Files:\n------------------'
         \ls ${HOME}/notes | awk -F '.' ' /.txt/ { print $1 } '
     elif [[ -z $2 ]]; then
         less ${HOME}/notes/${1}.txt
     else
-        grep -rh $HOME/notes/ --exclude-dir=".git" -e $1 | grep --color -C 10 $2
+        if [[ $1 =~ "-e" ]]; then
+            /usr/bin/editor ${HOME}/notes/${2}.txt
+        else
+            grep -rh $HOME/notes/ --exclude-dir=".git" -e $1 | grep --color -C 10 $2
+        fi
     fi
 }
 
