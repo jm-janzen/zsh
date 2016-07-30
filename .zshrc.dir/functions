@@ -53,13 +53,15 @@ function dump-ls() {
 function notes() {
     if [[ -z $1 ]]; then
         echo 'Usage:\n\t notes [OPTION] [FILE] [PATTERN]'
-    elif [[ $1 =~ "-h" ]]; then
+    elif [[ $1 =~ "-h" ]] || [[ $1 =~ "--help" ]]; then
         cat << EOF
 Usage: notes [OPTION] [FILE] [PATTERN]
     [OPTION]
-        -h
+        -h, --help
             Show this help text.
-        -e
+        -l, --list
+            Show the list of viewable, searchable, and editable files.
+        -e, --edit
             Edit the file in place, using default editor.  Depending on the
             set by \`update-alternatives --config editor' in /usr/bin/editor
             (Debian specific), this action may also create a blank help file
@@ -72,15 +74,13 @@ Usage: notes [OPTION] [FILE] [PATTERN]
         Any single word pattern, or if enclosed in single quotes, any standard
         regex expression accepted by the system's version of grep.
 EOF
-
-
     elif [[ $1 =~ "-l" ]] || [[ $1 =~ "--list" ]]; then
         echo 'List of Help Files:\n------------------'
         \ls ${HOME}/notes | awk -F '.' ' /.txt/ { print $1 } '
     elif [[ -z $2 ]]; then
         less ${HOME}/notes/${1}.txt
     else
-        if [[ $1 =~ "-e" ]]; then
+        if [[ $1 =~ "-e" ]] || [[ $1 =~ "--edit" ]]; then
             /usr/bin/editor ${HOME}/notes/${2}.txt
         else
             grep -rh $HOME/notes/ --exclude-dir=".git" -e $1 | grep --color -C 10 $2
