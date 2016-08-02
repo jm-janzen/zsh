@@ -63,7 +63,7 @@ Usage: notes [OPTION] [FILE] [PATTERN]
             Show the list of viewable, searchable, and editable files.
         -e, --edit
             Edit the file in place, using default editor.  Depending on the
-            set by \`update-alternatives --config editor' in /usr/bin/editor
+            set by 'update-alternatives --config editor' in /usr/bin/editor
             (Debian specific), this action may also create a blank help file
             of this name, if none exists.
         -s, --subject
@@ -71,7 +71,7 @@ Usage: notes [OPTION] [FILE] [PATTERN]
             Example usage: 'notes --subject linux cmds'
 
     [FILE]
-        Any file directly within the \`$HOME/notes' directory.
+        Any file directly within the '$HOME/notes' directory.
 
     [PATTERN]
         Any single word pattern, or if enclosed in single quotes, any standard
