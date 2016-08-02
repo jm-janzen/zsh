@@ -66,6 +66,9 @@ Usage: notes [OPTION] [FILE] [PATTERN]
             set by \`update-alternatives --config editor' in /usr/bin/editor
             (Debian specific), this action may also create a blank help file
             of this name, if none exists.
+        -s, --subject
+            Look into subject directory for topic, specific to that subject.
+            Example usage: 'notes --subject linux cmds'
 
     [FILE]
         Any file directly within the \`$HOME/notes' directory.
@@ -82,6 +85,8 @@ EOF
     else
         if [[ $1 =~ "-e" ]] || [[ $1 =~ "--edit" ]]; then
             /usr/bin/editor ${HOME}/notes/${2}.txt
+        elif [[ $1 =~ "-s" ]] || [[ $1 =~ "--subject" ]]; then
+            less ${HOME}/notes/${2}/${3}.txt
         else
             grep -rh $HOME/notes/ --exclude-dir=".git" -e $1 | grep --color -C 10 $2
         fi
