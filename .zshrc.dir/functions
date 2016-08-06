@@ -79,10 +79,27 @@ Usage: notes [OPTION] [FILE] [PATTERN]
 EOF
     elif [[ $1 =~ "-l" ]] || [[ $1 =~ "--list" ]]; then
         echo 'List of Help Files:\n------------------'
-        \ls -p ${HOME}/notes | awk -F '.txt|/' '
-            /.txt/ { print $1 }
-            /[/]/ { print "\033[34m"$1"\033[0m" }
-        '
+        for n in `\ls ${HOME}/notes`; do
+            note=${HOME}/notes/${n}
+
+            if [[ -d $note ]]; then
+                echo $note | awk -F '.*/' '
+                    /[/]/ { print "\033[34m"$2"\033[0m" }
+                '
+                for nn in `\ls $note`; do
+                    nn=`basename $(\ls -p ${note}/${nn})`
+                    echo $nn | awk -F '.txt' '
+                        /.txt/ { print "`-"$1 }
+                    '
+                done
+            elif [[ -e $note ]]; then
+                note=`basename $(\ls -p $note)`
+                echo $note | awk -F '.txt' '
+                    /.txt/ { print $1 }
+                '
+            fi
+        done
+
     elif [[ -z $2 ]]; then
         less ${HOME}/notes/${1}.txt
     else
