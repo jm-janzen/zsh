@@ -79,7 +79,10 @@ Usage: notes [OPTION] [FILE] [PATTERN]
 EOF
     elif [[ $1 =~ "-l" ]] || [[ $1 =~ "--list" ]]; then
         echo 'List of Help Files:\n------------------'
-        \ls ${HOME}/notes | awk -F '.' ' /.txt/ { print $1 } '
+        \ls -p ${HOME}/notes | awk -F '.txt|/' '
+            /.txt/ { print $1 }
+            /[/]/ { print "\033[34m"$1"\033[0m" }
+        '
     elif [[ -z $2 ]]; then
         less ${HOME}/notes/${1}.txt
     else
