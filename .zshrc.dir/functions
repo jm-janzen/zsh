@@ -42,7 +42,11 @@ function scn() {
 
 ### convenience functions
 function dump() {
-    mv -i $1 $HOME/bups/$1
+    if [[ -d $HOME/bups/$1 ]]; then
+        mv -i $1 $HOME/bups/$1
+    else
+        mkdir -p $HOME/bups/$1 && mv -i $1 $HOME/bups/$1
+    fi
 }
 function dump-empty() {
     mv $HOME/bups/* $HOME/.bups/
