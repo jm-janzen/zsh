@@ -19,6 +19,14 @@ function zedit () {
     esac
 }
 
+function md() {
+    if [[ ! -z "/usr/local/bin/mdless" ]]; then
+        mdless $1
+    else
+        echo "mdless not installed - run 'gem install mdless'"
+    fi
+}
+
 # TODO check if screen session of <fruit> name already exists
 # before creating a same-named session.
 function scn() {
