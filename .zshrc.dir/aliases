@@ -74,7 +74,8 @@ alias gpu='git push'              #
 alias  ga='git add'               #
 alias  gc='git checkout'          # shortcuts
 alias gcm='git commit'            #
-alias  gl='git log --name-status' # show file action summaries
+#alias  gl='git log --name-status' # show file action summaries
+alias  gl='git log --stat'        # show file insertions, deletions
 alias glp='git log \
     --patch-with-stat'            # show sum insert/deletes
 alias  gb='git blame -c'          ### TODO add more parms for better readout
