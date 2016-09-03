@@ -13,7 +13,7 @@ alias    td='\tree -Fn --dirsfirst -I node_modules -d' # same, but dirs only
 alias  scns='scn -ls'
 alias zshrf="source ${HOME}/.zshrc"
 alias    nv="nvim" # let's try out this whole neovim thing ...
-alias pandoc="pandoc -t plain $1"
+alias     p="pandoc -t plain $1"
 
 ### convenience (more specific)
 alias   mem='ps ax -o %mem=--MEM--,user=---USER---,pid=---PID--,cmd | grep -v root | sort -Vr'
