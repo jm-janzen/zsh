@@ -47,6 +47,7 @@ alias  c='~/scripts/ipinfo.sh'      # Usage: c  <ip>
 alias  e='~/scripts/penv.sh'        # Usage: e
 alias gm='~/scripts/gd-sum.sh'      # Usage: gm
 alias al='~/scripts/aliases.sh'     # Usage: al
+alias todo='~/scripts/todo.sh'      # Usage: todo
 
 alias crawl='~/scripts/crawl.sh'    # Usage: crawl [OPTIONS]... [FILE]
 alias zshdf='diff -r ~/.zshrc.dir ~/env/zsh/.zshrc.dir' # TEMP - recursive diff of active and vc zsh env files
