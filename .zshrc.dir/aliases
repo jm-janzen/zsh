@@ -6,6 +6,7 @@ alias    ll='\ls -halp -F'
 alias     l='\ls -p'
 alias    la='\ls -pa'
 alias    l.='\ls -halpd .*'
+alias    li='file *' # not a good alias, does not take args
 alias     j='jobs -l'
 alias     h='history'
 alias     t='\tree -Fn --dirsfirst -I node_modules'
@@ -13,7 +14,10 @@ alias    td='\tree -Fn --dirsfirst -I node_modules -d' # same, but dirs only
 alias  scns='scn -ls'
 alias zshrf="source ${HOME}/.zshrc"
 alias    nv="nvim" # let's try out this whole neovim thing ...
+alias    vi="nvim"
+alias   vim="nvim"
 alias     p="pandoc -t plain $1"
+alias  tmux="tmux2.3 -2"
 
 ### convenience (more specific)
 alias   mem='ps ax -o %mem=--MEM--,user=---USER---,pid=---PID--,cmd | grep -v root | sort -Vr'
@@ -80,7 +84,8 @@ alias  gl='git log --stat'        # show file insertions, deletions
 alias glp='git log \
     --patch-with-stat'            # show sum insert/deletes
 alias  gb='git blame -c'          ### TODO add more parms for better readout
-alias gbr='git show-branch -r'    # show common commits between branches
+alias gbr='git show-branch'       # show common commits between branches
 alias gcf='git commit -F- <<EOF'  # use heredocs for commit message
 alias gap='git add --patch'       # commit individual hunks
+alias  gw='watch -d --color git diff --color' # watch for changes, pass colours
 
