@@ -1,10 +1,7 @@
+. $HOME/.profile
 export TERM=xterm-256color # setenv TERM 256color
 autoload -Uz promptinit
 promptinit
-#prompt adam1
-
-# use zsh syntax in tmuxinator
-source ~/.tmux.dir/tmuxinator.zsh
 
 setopt histignorealldups sharehistory
 
@@ -64,6 +61,7 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
 setopt transient_rprompt
-PS1="%(1j.[%j]"$'\n'".)%{$fg[magenta]%}%~ %{$fg_bold[magenta]%}>%{$reset_color%} "
+#PS1="%(1j.[%j]"$'\n'".)%{$fg[cyan]%}%~ %{$fg_bold[cyan]%}>%{$reset_color%} "
+PS1="%(1j.[%j]"$'\n'".)%{$fg[cyan]%}%~ %{$fg_bold[cyan]%}>%{$reset_color%} "
 RPROMPT="${VIM_INST}"
 

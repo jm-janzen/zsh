@@ -17,7 +17,9 @@ alias    nv="nvim" # let's try out this whole neovim thing ...
 alias    vi="nvim"
 alias   vim="nvim"
 alias     p="pandoc -t plain $1"
-alias  tmux="tmux2.3 -2"
+#alias  tmux="tmux2.3 -2"
+alias  tmux="tmux -u"
+alias    py="python -u"
 
 ### convenience (more specific)
 alias   mem='ps ax -o %mem=--MEM--,user=---USER---,pid=---PID--,cmd | grep -v root | sort -Vr'
@@ -83,7 +85,7 @@ alias gcm='git commit'            #
 alias  gl='git log --stat'        # show file insertions, deletions
 alias glp='git log \
     --patch-with-stat'            # show sum insert/deletes
-alias  gb='git blame -c'          ### TODO add more parms for better readout
+alias  gb='git branch'
 alias gbr='git show-branch'       # show common commits between branches
 alias gcf='git commit -F- <<EOF'  # use heredocs for commit message
 alias gap='git add --patch'       # commit individual hunks
