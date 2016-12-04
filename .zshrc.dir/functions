@@ -75,7 +75,7 @@ Usage: notes [OPTION] [FILE] [PATTERN]
             Show the list of viewable, searchable, and editable files.
         -e, --edit
             Edit the file in place, using default editor.  Depending on the
-            set by 'update-alternatives --config editor' in /usr/bin/editor
+            the environment variable \`EDITOR'.
             (Debian specific), this action may also create a blank help file
             of this name, if none exists.
         -f, --find
@@ -127,7 +127,7 @@ EOF
         less ${HOME}/notes/${1}.mkd
     else
         if [[ $1 =~ "-e" ]] || [[ $1 =~ "--edit" ]]; then
-            /usr/bin/editor ${HOME}/notes/${2}.mkd
+            $EDITOR ${HOME}/notes/${2}.mkd
         elif [[ $1 =~ "-s" ]] || [[ $1 =~ "--subject" ]]; then
             less ${HOME}/notes/${2}/${3}.mkd
         fi
